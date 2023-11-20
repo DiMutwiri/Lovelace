@@ -1,0 +1,15 @@
+{
+  "name": "lovelace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Lovelace.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mutwiri",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^8.3.0"
+  }
+}

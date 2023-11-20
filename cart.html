@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vieport" content="width=device-width, initilal-scale=1.0">
+    <title>LoveLace Place</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Lovelace.css">
+</head>
+
+<body>
+    
+    <section id="header" style="background-color: antiquewhite;">
+        <a href="#"> <img src="ProPix/logo.jpeg" class="logo" alt="" style="height: 140px;"></a>
+
+            <div>
+                <ul id="navig">
+                    <li> <a href="Lovelace.html">Home</a></li>
+                    <li> <a href="shop.html">Shop</a></li>
+                    <li> <a href="blog.html">Blog</a></li>                   
+                    <li> <a href="about.html">about</a></li>
+                    <li> <a href="contact.html">Contact</a></li>
+                    <li> <a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i></a></li>
+                </ul>
+            </div>
+    </section>
+
+
+    <section id="page-header" class="contact-header">        
+        <h2>#Complete, Enjoy, Checkout! </h2>        
+        <marquee bgcolor="orange" width="75%">Discover joy today! Complete your order now for exclusive benefits, fast shipping, and priority access. Don't miss out,<strong> shop now!</strong></marquee>
+
+    </section>
+
+
+    <section id="cart" class="section-p1">
+        <table id="cartTable" width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>sub-total</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#" onclick="removeItem(0)"><i class="fa-regular fa-circle-minus"></i></a></td>
+                    <td><img src="Propix/sh1.jpg" alt=""></td>
+                    <td>Hawaiian Print Shirt</td>
+                    <td data-price="1500">Kes. 1,500</td>
+                    <td><input type="number" value="1" onchange="updateSubtotal(0, this.value)"></td>
+                    <td>1,500</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="removeItem(1)"><i class="fa-regular fa-circle-minus"></i></a></td>
+                    <td><img src="Propix/sh2.jpeg" alt=""></td>
+                    <td>Summer linen Shirt</td>
+                    <td data-price="1200">Kes. 1,200</td>
+                    <td><input type="number" value="1" onchange="updateSubtotal(1, this.value)"></td>
+                    <td class="subtotal">1,200</td>
+                </tr>
+                <tr>
+                    <td><a href="#" onclick="removeItem(2)"><i class="fa-regular fa-circle-minus"></i></a></td>
+                    <td><img src="Propix/sh3.jpeg" alt=""></td>
+                    <td>Beach boy Shirt</td>
+                    <td data-price="1300">Kes. 1,300</td>
+                    <td><input type="number" value="1" onchange="updateSubtotal(2, this.value)"></td>
+                    <td class="subtotal">1,300</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <script>
+        function updateSubtotal(index, quantity) {
+            // Get the price and calculate the new subtotal
+            var price = document.getElementById("cartTable").rows[index + 1].cells[3].getAttribute("data-price");
+            var subtotal = price * quantity;
+
+            // Update the subtotal cell in the table
+            document.getElementById("cartTable").rows[index + 1].cells[5].textContent = subtotal;
+        }
+
+    </script>
+
+
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div><input type="text" placeholder="Enter Coupon Code "></div>
+            <button> Apply</button>
+
+        </div>
+        <div id="sub-total">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Sub-total</td>
+                    <td id="cart-subtotal">4,000</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td id="shipping-total">Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td id="cart-total"><strong>Ksh. 4000</strong></td>
+                </tr>
+            </table>
+            <button>Proceed to Checkout</button>
+        </div>
+
+    </section>
+
+
+    <footer id="footer" class="section-p1">
+    <div class="column">
+        <h4>Contact</h4>
+        <p>1400 - 00606<br>Nairobi<br>Kenya<br></p>
+        <p><strong>Phone</strong> +254110544148</p>
+        <p><strong>Hours</strong> 0900 - 1700 hrs</p>
+
+    </div>
+    <div class="socials column">
+        <h4>Follow us:</h4>
+        <div class="icon">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+
+    </div>
+    <div class="column">
+        <h4>About</h4>
+        <a href="#">about us</a>
+        <a href="#">Deliveries</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+
+    </div>
+    <div class="column">
+        <h4>My Account</h4>
+        <a href="#" onclick="window.location.href='login.html';">sign in</a>
+        <a href="#" onclick="window.location.href='about.html';">about us</a>
+        <a href="#" onclick="window.location.href='cart.html';">view cart</a>       
+        <a href="#" onclick="window.location.href='contact.html';" >Track Order</a>
+        <a href="#" onclick="window.location.href='contact.html';" >help</a>
+
+    </div>
+    <div class="install column">
+        <h4>Download App</h4>
+        <div class="download">           
+            <i class="fa-brands fa-google-play fa-beat fa-xl"></i>
+            <i class="fa-brands fa-app-store-ios fa-beat fa-xl"></i>
+        </div>
+        <div>
+            <h4>Secure payment methods</h4>
+        <img src="ProPix/pay.jpeg">
+        </div>
+    </div>
+    <div class="mapouter column">
+        <strong>Location</strong>
+        <br><div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=thika%20road%20mall&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+            frameborder="0" scrolling="no" style="width: 400px; height: 240px;"></iframe>
+            <style>.mapouter{position:relative;height:240px;width:400px;background:#fff;}</style>
+            <a href="https://blooketjoin.org" style="color:#fff !important; position:absolute !important; top:0 !important; z-index:0 !important;">blooket join</a>
+            <style>.gmap_canvas{overflow:hidden;height:240px;width:400px}.gmap_canvas iframe{position:relative;z-index:2}</style>
+       <br></div>
+    </div>
+    <div class="copyright">
+        <p>&copy 2023 LoveLace</p>
+    </div>      
+    </footer>
+
+   
+
+
+    <script src="Lovelace.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vieport" content="width=device-width, initilal-scale=1.0">
+    <title>LoveLace Place</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Lovelace.css">
+</head>
+
+<body>
+    <!--navigation bar-->
+    <section id="header" style="background-color: antiquewhite;">
+        <a href="#"> <img src="ProPix/logo.jpeg" class="logo" alt="" style="height: 140px;"></a>
+
+            <div>
+                <ul id="navig">
+                    <li> <a href="Lovelace.html">Home</a></li>
+                    <li> <a class="active" href="shop.html">Shop</a></li>
+                    <li> <a href="blog.html">Blog</a></li>
+                    <li> <a href="contact.html">Contact</a></li>
+                    <li> <a href="about.html">about</a></li>
+                    <li> <a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i></a></li>
+                </ul>
+            </div>
+    </section>
+    
+    <!--individual Product Details-->
+    <section id="product-details" class="section-p1">
+        
+        <div id="individual-product-image" class="section-p1">
+            <img src="Propix/sh1.jpg" alt="Main Image" class="main-image" id="main-image">
+            <div class="small-image-row">
+              <img src="Propix/sh2.jpeg" alt="Option 1" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh3.jpeg" alt="Option 2" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh4.jpeg" alt="Option 3" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh5.jpeg" alt="Option 4" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh6.jpeg" alt="Option 4" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh7.jpeg" alt="Option 4" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh8.jpeg" alt="Option 4" class="small-image" onclick="changeImage(this)">
+              <img src="Propix/sh9.jpeg" alt="Option 4" class="small-image" onclick="changeImage(this)">
+            </div>
+          </div>
+
+        <div class="individual-product-details">
+            <h6>Home /T-shirt</h6>
+            <h4>Men's Fashion T-shirt</h4>
+            <h2>Kes. 1,500</h2>
+
+            <select>
+                <option>Select Size</option>
+                <option>small</option>
+                <option>medium</option>
+                <option>Large</option>
+                <option>XL</option>
+                <option>XXL</option>
+            </select>
+
+            <input type="number" value="1">
+            <button>Add to Cart</button>
+            <h4>Description</h4>
+            <span>
+                Step into summer with our breezy,
+                cool-as-a-breeze shirts! Crafted from lightweight cotton,
+                these shirts are your perfect companions for sunny days.
+                The fabric dances with vibrant patterns,
+                creating a stylish symphony of comfort and flair.
+                Embrace the sunshine in style!
+            </span>
+        </div>
+    </section>
+
+       <!--this section contains feature products-->
+       <section id="product1" class="section-p1">
+        <h2>FEATURED PRODUCTS</h2>
+        <P>summer collection</P>
+
+        <div class="product-container">            
+            <div class="pro">
+                <img src="propix/afsh1.jpg" alt="">
+                <div class="des"> <!--description-->
+                    <span>MFCHY</span>
+                    <h5>Hawaiian print short sleeve beach shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Kes 1,500</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-bag-shopping fa-beat cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="propix/sh1.jpg" alt="">
+                <div class="des"> <!--description-->
+                    <span>MFCHY</span>
+                    <h5>Hawaiian print short sleeve beach shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Kes 1,500</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-bag-shopping fa-beat cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="propix/sh1.jpg" alt="">
+                <div class="des"> <!--description-->
+                    <span>MFCHY</span>
+                    <h5>Hawaiian print short sleeve beach shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>Kes 1,500</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-bag-shopping fa-beat cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!--newsletter and sign up-->
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign up for Newslatters</h4>            
+            <p>Get e-mails about our <span>new arrivals</span> and <span>special offers.</span></p>
+
+        </div>
+        <div class="form">
+            <input type="text" placeholder="enter your e-mail here">
+            <button>sign up</button>
+
+        </div>
+    </section>
+
+    <!--ETCs at the bottom-->
+    <footer id="footer" class="section-p1">
+    <div class="column">
+        <h4>Contact</h4>
+        <p>1400 - 00606<br>Nairobi<br>Kenya<br></p>
+        <p><strong>Phone</strong> +254110544148</p>
+        <p><strong>Hours</strong> 0900 - 1700 hrs</p>
+
+    </div>
+    <div class="socials column">
+        <h4>Follow us:</h4>
+        <div class="icon">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+
+    </div>
+    <div class="column">
+        <h4>About</h4>
+        <a href="#" onclick="window.location.href='cart.html';">about us</a>
+        <a href="#">Deliveries</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+
+    </div>
+    <div class="column">
+        <h4>My Account</h4>
+        <a href="#" onclick="window.location.href='login.html';">sign in</a>
+        <a href="#" onclick="window.location.href='about.html';">about us</a>
+        <a href="#" onclick="window.location.href='cart.html';">view cart</a>       
+        <a href="#" onclick="window.location.href='contact.html';" >Track Order</a>
+        <a href="#" onclick="window.location.href='contact.html';" >help</a>
+
+    </div>
+    <div class="install column">
+        <h4>Download App</h4>
+        <div class="download">           
+            <i class="fa-brands fa-google-play fa-beat fa-xl"></i>
+            <i class="fa-brands fa-app-store-ios fa-beat fa-xl"></i>
+        </div>
+        <div>
+            <h4>Secure payment methods</h4>
+        <img src="ProPix/pay.jpeg">
+        </div>
+    </div>
+    <div class="mapouter column">
+        <strong>Location</strong>
+        <br><div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=thika%20road%20mall&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+            frameborder="0" scrolling="no" style="width: 400px; height: 240px;"></iframe>
+            <style>.mapouter{position:relative;height:240px;width:400px;background:#fff;}</style>
+            <a href="https://blooketjoin.org" style="color:#fff !important; position:absolute !important; top:0 !important; z-index:0 !important;">blooket join</a>
+            <style>.gmap_canvas{overflow:hidden;height:240px;width:400px}.gmap_canvas iframe{position:relative;z-index:2}</style>
+       <br></div>
+    </div>
+    <div class="copyright">
+        <p>&copy 2023 LoveLace</p>
+    </div>      
+    </footer>
+
+
+    <script>
+        
+        function changeImage(clickedImage) {
+            // Get the source of the clicked small image
+            var newSrc = clickedImage.src;
+
+            // Get the source of the current main image
+            var mainImage = document.getElementById('main-image');
+            var oldSrc = mainImage.src;
+
+            // Set the source of the clicked small image to the main image
+            mainImage.src = newSrc;
+
+            // Set the source of the current main image to the clicked small image
+            clickedImage.src = oldSrc;
+        }
+        
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

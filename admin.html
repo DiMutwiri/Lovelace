@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h2 class="mb-4">Product Management</h2>
+
+    <!-- Image Upload Form -->
+    <form id="uploadForm">
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Image</label>
+        <input type="file" class="form-control" id="image" accept="image/*">
+      </div>
+      <div class="mb-3">
+        <label for="brandName" class="form-label">Brand Name</label>
+        <input type="text" class="form-control" id="brandName">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="rating" min="0" max="5">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" id="price" step="0.01">
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Featured?</label>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="featured">
+            <label class="form-check-label" for="featured">Yes</label>
+        </div>
+    </div>
+    
+      <button type="submit" class="btn btn-success">Save Product</button>
+    </form>
+
+    <!-- Product Table -->
+    <table class="table mt-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Brand Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Rating</th>
+          <th scope="col">Price</th>
+          <th scope="col">Actions</th>
+          <th scope="col">Featured?</th>
+        </tr>
+      </thead>
+      <tbody id="productTableBody"></tbody>
+    </table>
+  </div>
+
+  <script type="module" src="/admin.js" defer></script>
+</body>
+</html>

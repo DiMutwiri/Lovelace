@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vieport" content="width=device-width, initilal-scale=1.0">
+    <title>LoveLace Place</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Lovelace.css">
+</head>
+
+<body>
+    
+    <section id="header" style="background-color: antiquewhite;">
+        <a href="#"> <img src="ProPix/logo.jpeg" class="logo" alt="" style="height: 140px;"></a>
+
+            <div>
+                <ul id="navig">
+                    <li> <a href="Lovelace.html">Home</a></li>
+                    <li> <a href="shop.html">Shop</a></li>
+                    <li> <a href="blog.html">Blog</a></li>                   
+                    <li> <a href="about.html">about</a></li>
+                    <li> <a  class="active" href="contact.html">Contact</a></li>
+                    <li> <a href="cart.html"><i class="fa-solid fa-bag-shopping fa-beat"></i></a></li>
+                </ul>
+            </div>
+    </section>
+
+
+    <section id="page-header" class="contact-header">        
+        <h2>#talk to us </h2>        
+        <marquee bgcolor="orange" width="75%">We'd love to get your feedback. Can't wait to hear from you, if you'd kindly leave a piece of advise</marquee>
+
+    </section>
+
+    <section id="form-details"> 
+        <form action="">
+            <span>Leave a Message</span>
+            <h2>We'd love to hear from you</h2>
+            <input type="text" placeholder="Your Name">
+            <input type="text" placeholder="e-mail">
+           
+                <select name="FAQs" id="faq-subject" onchange="updateSubject()">   
+                    <option>Subject</option>
+                    <option>Deliveries</option>
+                    <option>Track Order</option>
+                    <option>Refund</option>
+                    <option>Flawed Products</option>
+                    <option>Other</option>  
+                </select>
+                <input type="text" placeholder="Subject" id="subject-input">
+                <script>
+                    function updateSubject() {
+                        var selectValue = document.getElementById("faq-subject").value;
+                        document.getElementById("subject-input").value = selectValue;
+                    }
+                </script>
+            <textarea name="" id="" cols="30" rows="10" placeholder="more details on the issue"></textarea>
+            <button type="submit">submit</button>
+        </form>
+        <div class="people">
+            <div class="posts" >
+                <img src="Propix/licence pic1.jpg" alt="">
+                <p><span>Esparaj Rocsy</span> <br> Chief Executive Officer <br> Tel: +254 740-399167 <br> Email: esparajrocsy@gmail.com</p>
+            </div>
+            <div class="posts">
+                <img src="Propix/licence pic1.jpg" alt="">
+                <p><span>Dennis Mutwiri</span> <br> Chief Operating Officer <br> Tel: +254 110-544348 <br> Email: njirudmutwiri@gmail.com</p>
+            </div>
+            <div class="posts">
+                <img src="Propix/licence pic1.jpg" alt="">
+                <p><span>The Value of X</span> <br> Senior Marketing Manager <br> Tel: +254 729-261348<br> Email: queries@evalx.co.ke</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-details" class="section-p1">
+        <div class="details">
+            <span>GET IN TOUCH</span>
+            <h2>Visit us or contact us today!</h2>
+            <h3>head office</h3>
+            <div>
+                <li>
+                    <i class="fa-light fa-location-dot"></i>
+                    <p>TRM, Nairobi<br>1400 - 00606</p>
+                </li>
+                <li>
+                    <i class="far fa-envelope"></i>
+                    <p><a href="mailto:esparajrocsy@gmail.com">esparajrocsy@gmail.com</a></p>
+                </li>
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <p><a href="tel:+254740399167">+254 740-399167</a></p>
+                </li>
+                <li>
+                    <i class="far fa-clock"></i>
+                    <p>Daily, from 8:00 AM till 10:00 PM</p>
+                </li>
+            </div>
+        </div>
+       
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign up for Newslatters</h4>            
+            <p>Get e-mails about our <span>new arrivals</span> and <span>special offers.</span></p>
+
+        </div>
+        <div class="form">
+            <input type="text" placeholder="enter your e-mail here">
+            <button onclick="window.location.href='signUp.html';">sign up</button>
+
+        </div>
+    </section>
+
+    <footer id="footer" class="section-p1">
+    <div class="column">
+        <h4>Contact</h4>
+        <p>1400 - 00606<br>Nairobi<br>Kenya<br></p>
+        <p><strong>Phone</strong> +254110544148</p>
+        <p><strong>Hours</strong> 0900 - 1700 hrs</p>
+
+    </div>
+    <div class="socials column">
+        <h4>Follow us:</h4>
+        <div class="icon">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+
+    </div>
+    <div class="column">
+        <h4>About</h4>
+        <a href="#">about us</a>
+        <a href="#">Deliveries</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+
+    </div>
+    <div class="column">
+        <h4>My Account</h4>
+        <a href="#" onclick="window.location.href='login.html';">sign in</a>
+        <a href="#" onclick="window.location.href='about.html';">about us</a>
+        <a href="#" onclick="window.location.href='cart.html';">view cart</a>       
+        <a href="#" onclick="window.location.href='contact.html';" >Track Order</a>
+        <a href="#" onclick="window.location.href='contact.html';" >help</a>
+
+    </div>
+    <div class="install column">
+        <h4>Download App</h4>
+        <div class="download">           
+            <i class="fa-brands fa-google-play fa-beat fa-xl"></i>
+            <i class="fa-brands fa-app-store-ios fa-beat fa-xl"></i>
+        </div>
+        <div>
+            <h4>Secure payment methods</h4>
+        <img src="ProPix/pay.jpeg">
+        </div>
+    </div>
+    <div class="mapouter column">
+        <strong>Location</strong>
+        <br><div class="gmap_canvas"><iframe src="https://maps.google.com/maps?q=thika%20road%20mall&amp;t=k&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed" 
+            frameborder="0" scrolling="no" style="width: 400px; height: 240px;"></iframe>
+            <style>.mapouter{position:relative;height:240px;width:400px;background:#fff;}</style>
+            <a href="https://blooketjoin.org" style="color:#fff !important; position:absolute !important; top:0 !important; z-index:0 !important;">blooket join</a>
+            <style>.gmap_canvas{overflow:hidden;height:240px;width:400px}.gmap_canvas iframe{position:relative;z-index:2}</style>
+       <br></div>
+    </div>
+    <div class="copyright">
+        <p>&copy 2023 LoveLace</p>
+    </div>      
+    </footer>
+
+   
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
