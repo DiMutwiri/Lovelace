@@ -8,6 +8,11 @@
     <title>LoveLace Place</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="Lovelace.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -35,10 +40,12 @@
     </section>   
 
     <section id="product1" class="c">
-        <div class="product-container">
+        <div id="featuredProductContainer" class="product-container"></div>
+        <div id="allProductContainer" class="row d-flex justify-content-between flex-wrap"></div>
+         <!--<div class="product-container">
             <div class="pro">
                 <img src="propix/sh1.jpg" alt="" onclick="window.location.href='single-product.html';">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -53,7 +60,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh2.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -68,7 +75,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh3.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -83,7 +90,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh4.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -98,7 +105,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh5.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -113,7 +120,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh6.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -128,7 +135,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh7.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -143,7 +150,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh8.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -158,7 +165,7 @@
             </div>
             <div class="pro">
                 <img src="propix/sh9.jpeg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Hawaiian print short sleeve beach shirt</h5>
                     <div class="star">
@@ -175,7 +182,7 @@
         <div class="product-container">
             <div class="pro">
                 <img src="propix/afsh1.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>african print polo shirts</h5>
                     <div class="star">
@@ -190,7 +197,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh2.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>Chemise Homme Imprimé Africane Loisir Col V Slim</h5>
                     <div class="star">
@@ -205,7 +212,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh3.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Dashiki Ethnic Shirt Traditional Shirt Unisex Shirt Bali Style Shirt</h5>
                     <div class="star">
@@ -220,7 +227,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh4.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>African Shirts for Men Dashiki White African Traditional Tribal Pattern Printed Long Sleeve Shirt</h5>
                     <div class="star">
@@ -235,7 +242,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh5.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Autumn Winter Luxury African Print Long Sleeve Dashiki Men's Shirt Top Blouse</h5>
                     <div class="star">
@@ -250,7 +257,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh6.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des"> 
                     <span>MFCHY</span>
                     <h5>Autumn Winter Luxury African Print Long Sleeve Dashiki Men's Shirt Top Blouse</h5>
                     <div class="star">
@@ -265,7 +272,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh7.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>Autumn Winter Luxury African Print Long Sleeve Dashiki Men's Shirt Top Blouse</h5>
                     <div class="star">
@@ -280,7 +287,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh8.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>Autumn Winter Luxury African Print Long Sleeve Dashiki Men's Shirt Top Blouse</h5>
                     <div class="star">
@@ -295,7 +302,7 @@
             </div>
             <div class="pro">
                 <img src="propix/afsh9.jpg" alt="">
-                <div class="des"> <!--description-->
+                <div class="des">
                     <span>MFCHY</span>
                     <h5>Fashion Clothing & Wedding & Party Occasion Dresses Online Shopping Mall</h5>
                     <div class="star">
@@ -308,8 +315,8 @@
                 </div>
                 <a href="#"><i class="fa-solid fa-bag-shopping fa-beat cart"></i></a>
             </div>
-        </div>
-    </section>
+        </div>-->
+    </section> 
 
     <section id="pagination" class="section-p1">
         <a href="#">1</a>
@@ -392,8 +399,59 @@
     </div>      
     </footer>
 
-
-    <script src="Lovelace.js"></script>
+    <script type="module">
+        async function fetchAndDisplayProducts() {
+            try {
+                const { data, error } = await supabase
+                    .from('products')
+                    .select();
+    
+                if (error) {
+                    throw error;
+                }
+    
+                const allProductContainer = document.getElementById('allProductContainer');
+                allProductContainer.innerHTML = ''; // Clear previous content
+    
+                if (data && data.length > 0) {
+                    data.forEach((product) => {
+                        // Create a product element with Bootstrap classes
+                        const productElement = document.createElement('div');
+                        productElement.className = 'col-md-4 mb-3'; // Use Bootstrap grid classes
+                
+                        productElement.innerHTML = `
+                            <div class="card">
+                                <img src="${product.image_url}" alt="${product.brandName}" class="card-img-top cover" style="height: 400px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.brandName}</h5>
+                                    <p class="card-text">${product.Description}</p>
+                                    <div class="star" style="color: gold">
+                                        ${generateStarIcons(product.Rating)}
+                                    </div>
+                                    <p class="card-text"><small class="text-muted">Kes ${product.Price}</small></p>
+                                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-bag-shopping fa-beat"></i> Add to Cart</a>
+                                </div>
+                            </div>
+                        `;
+                        // Append the product element to the allProductContainer
+                        allProductContainer.appendChild(productElement);
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching and displaying products:', error.message);
+            }
+        }
+    
+        // Function to generate star icons based on the rating
+        function generateStarIcons(rating) {
+            const starIcons = Array.from({ length: rating }, () => '<i class="fas fa-star"></i>');
+            return starIcons.join('');
+        }
+    
+        // Fetch and display products on page load
+        fetchAndDisplayProducts();
+    </script>
+    <script src="Lovelace.js" type="module"></script>
 
 </body>
 

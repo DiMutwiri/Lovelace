@@ -41,6 +41,8 @@ async function fetchAndDisplayProducts() {
     }
   }
 
+
+
 // Function to handle image upload
 async function handleImageUpload(event) {
   event.preventDefault();
@@ -102,8 +104,82 @@ async function handleImageUpload(event) {
   }
 }
 
+
+
 // Event listener for form submission
 document.getElementById('uploadForm').addEventListener('submit', handleImageUpload);
 
 // Fetch and display products on page load
 fetchAndDisplayProducts();
+
+
+
+// Function to delete a product
+async function deleteProduct(productId) {
+  try {
+    const { data, error } = await supabase
+      .from('products')
+      .delete()
+      .eq('id', productId);
+
+    if (error) {
+      throw error;
+    }
+
+    alert('Product deleted successfully.');
+    fetchAndDisplayProducts(); // Refresh the product table
+  } catch (error) {
+    console.error('Error deleting product:', error.message);
+  }
+}
+
+
+
+// Function to edit a product
+async function editProduct(productId) {
+  // Retrieve the existing product details based on the productId
+  const existingProduct = await supabase
+    .from('products')
+    .select()
+    .eq('id', productId)
+    .single();
+
+  if (!existingProduct.data) {
+    alert('Product not found.');
+    return;
+  }
+
+  // Populate the form with existing product details
+  document.getElementById('brandName').value = existingProduct.data.brandName;
+  document.getElementById('description').value = existingProduct.data.Description;
+  document.getElementById('rating').value = existingProduct.data.Rating;
+  document.getElementById('price').value = existingProduct.data.Price;
+  document.getElementById('featured').value = existingProduct.data.Featured;
+
+  // Handle form submission for updating the product
+  document.getElementById('uploadForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data, error } = await supabase
+        .from('products')
+        .update({
+          brandName: document.getElementById('brandName').value,
+          Description: document.getElementById('description').value,
+          Rating: document.getElementById('rating').value,
+          Price: document.getElementById('price').value,
+          Featured: document.getElementById('featured').value,
+        })
+        .eq('id', productId);
+
+      if (error) {
+        throw error;
+      }
+
+      alert('Product updated successfully.');
+      fetchAndDisplayProducts(); // Refresh the product table
+    } catch (error) {
+      console.error('Error updating product:', error.message);
+    }
+  });
+}

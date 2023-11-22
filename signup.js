@@ -26,3 +26,4 @@ document.getElementById('signup').onclick = async function() {
     console.error("Error signing up:", error.message);
   }
 };
+

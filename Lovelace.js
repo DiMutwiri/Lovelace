@@ -18,52 +18,9 @@ window.onscroll = function() {
 
 
 
-//  SHOPPING CART 
-// function to update subtotals 
-function updateSubtotal(index, quantity) {
-    var price = document.getElementById("cartTable").rows[index + 1].cells[3].getAttribute("data-price");
-    var subtotal = price * quantity;
-    document.getElementById("cartTable").rows[index + 1].cells[5].textContent = subtotal;
-
-    // Call the function to update totals whenever a subtotal changes
-    updateTotals();
-}
-
-// update totals
-function updateTotals() {
-    var cartSubtotal = calculateCartSubtotal();
-    var shippingTotal = calculateShippingTotal();
-    var cartTotal = cartSubtotal + shippingTotal;
-
-    // Update the HTML elements with the new totals
-    document.getElementById("cart-subtotal").textContent = cartSubtotal.toFixed(2);
-    document.getElementById("shipping-total").textContent = shippingTotal.toFixed(2);
-    document.getElementById("cart-total").textContent = cartTotal.toFixed(2);
-}
-
-//calculate the cart subtotal 
-function calculateCartSubtotal() {
-    var rows = document.getElementById("cartTable").rows;
-    var subtotal = 0;
-
-    for (var i = 1; i < rows.length; i++) {
-        var price = rows[i].cells[3].getAttribute("data-price");
-        var quantity = rows[i].cells[4].getElementsByTagName("input")[0].value;
-        subtotal += price * quantity;
-    }
-
-    return subtotal;
-}
-
-//calculate the shipping total (replace this with your actual logic)
-function calculateShippingTotal() {
-    
-    //  shipping is free in this case
-    return 0;
-}
-
 
 async function fetchAndDisplayProducts() {
+    
     try {
         const { data, error } = await supabase
             .from('products')
@@ -84,21 +41,31 @@ async function fetchAndDisplayProducts() {
                 // Create a product element with Bootstrap classes
                 const productElement = document.createElement('div');
                 productElement.className = 'col-md-4 mb-3'; // Use Bootstrap grid classes
-        
-                productElement.innerHTML = `
-                    <div class="card">
-                        <img src="${product.image_url}" alt="${product.brandName}" class="card-img-top cover" style= "max-height: 400px; ">
-                        <div class="card-body">
-                            <h5 class="card-title">${product.brandName}</h5>
-                            <p class="card-text">${product.Description}</p>
-                            <div class="star" style="color: gold">
-                                ${generateStarIcons(product.Rating)}
-                            </div>
-                            <p class="card-text"><small class="text-muted">Kes ${product.Price}</small></p>
-                            <a href="#" class="btn btn-primary"><i class="fa-solid fa-bag-shopping fa-beat"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                `;
+        // ...
+// ...
+
+productElement.innerHTML = `
+    <div class="card">
+        <img src="${product.image_url}" alt="${product.brandName}" class="card-img-top cover" style= "max-height: 400px;">
+        <div class="card-body">
+            <h5 class="card-title">${product.brandName}</h5>
+            <p class="card-text">${product.Description}</p>
+            <div class="star" style="color: gold">
+                ${generateStarIcons(product.Rating)}
+            </div>
+            <p class="card-text"><small class="text-muted">Kes ${product.Price}</small></p>
+            <a href='/cart.html?userId=${product.userId}&productId=${product.id}' class="btn btn-primary" onclick="addToCart(${JSON.stringify(product)})">
+                <i class="fa-solid fa-bag-shopping fa-beat"></i> Add to Cart
+            </a>
+        </div>
+    </div>
+`;
+
+// ...
+
+
+// ...
+
                 // Append the product element to the appropriate container
                 if (product.Featured ===true) {
                     featuredProductContainer.appendChild(productElement);

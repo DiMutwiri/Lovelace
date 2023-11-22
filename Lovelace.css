@@ -373,8 +373,8 @@
     height: 40px;
     width: 300px;
     padding: 0px 10px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    /* border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
 }
 #newsletter span {
     font-size: 17px;
