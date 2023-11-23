@@ -4,29 +4,41 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 const supabase = createClient('https://gjhybbmedxwbiwaopmmu.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdqaHliYm1lZHh3Yml3YW9wbW11Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA0ODIyNDIsImV4cCI6MjAxNjA1ODI0Mn0.fnOm6eRjSK-S0pFzMbnz_5i3vqO8Fei62WMBbp3zotQ')
 
 function updateTotals() {
+    const totalQuantityElement = document.getElementById('totalQuantity');
+    const totalPriceElement = document.getElementById('totalPrice');
 
+    // Calculate total quantity and total price
+    const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+
+    // Update the HTML elements
+    totalQuantityElement.textContent = totalQuantity;
+    totalPriceElement.textContent = totalPrice.toFixed(2); // Format the total price to two decimal places
 }
 
+// Extract product ID from URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get('productId');
+const userId = urlParams.get('userId');
 // Array to store selected products in the cart
 const cartItems = [];
 // Fetch product details based on the ID from the URL
-async function fetchProductById() {
+// ...
+
+async function fetchProductById(productId, userId) {
     try {
         const { data, error } = await supabase
             .from('products')
-            .select('*')
-            .eq('id', productId)
+            .select()
             .eq('paid', false)
-            .eq('userId', userId)
-           
-            
+            .eq('userId', userId);
 
         if (error) {
             throw error;
-        }console.log(data)
+        }
 
+        console.log(data);
         return data;
-        
     } catch (error) {
         console.error('Error fetching product details:', error.message);
         return null;
@@ -35,16 +47,20 @@ async function fetchProductById() {
 
 // ...
 
-// Extract product ID from URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('productId');
-const userId = urlParams.get('userId');
 
 
-// Fetch product details based on the ID
+// Fetch product details based on the user ID
+const productDetails = await fetchProductById(productId, userId); // Pass null as productId to fetch all products for the user
 
-
-// ...
+// Check if there are product details
+if (productDetails && productDetails.length > 0) {
+    // Iterate through the products and add each to the cart
+    productDetails.forEach((product) => {
+        addToCart(product);
+    }) 
+} else {
+    console.error('No products found for the user.');
+}
 
 // Function to add product to the cart
 async function addToCart(product) {
@@ -69,7 +85,11 @@ async function addToCart(product) {
     // Update the cart in the HTML
     updateCartHtml();
  }
- 
+ function removeCartItem(index) {
+    cartItems.splice(index, 1);
+    updateCartHtml();
+}
+
 
 // Function to update the cart in the HTML
 function updateCartHtml() {
@@ -101,8 +121,4 @@ function updateCartHtml() {
     // ...
 
 // Function to remove item from the cart
-function removeCartItem(index) {
-    cartItems.splice(index, 1);
-    updateCartHtml();
-}
 
