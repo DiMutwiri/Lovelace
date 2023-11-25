@@ -87,3 +87,8 @@ function generateStarIcons(rating) {
 
 // Fetch and display products on page load
 fetchAndDisplayProducts();
+
+
+
+// contacts page
+
