@@ -21,7 +21,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('productId');
 const userId = urlParams.get('userId');
 // Array to store selected products in the cart
-const cartItems = [];
+var cartItems = [];
 // Fetch product details based on the ID from the URL
 // ...
 
@@ -117,8 +117,42 @@ function updateCartHtml() {
     // Update the totals
     updateTotals();
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Function to display Bootstrap modal with checkout details
+    function displayCheckoutModal() {
+        // Calculate total price with VAT (16%)
+        const totalPriceWithVAT = cartItems.reduce((total, item) => total + item.price * item.quantity, 0) * 1.16;
+    
+        // Create the content for the modal
+       document.createElement( '<h2 class="modal-title">Checkout Details</h2>')
+      const list = document.createElement( '<ul>');
+    
+        // Iterate through the items and add them to the content
+        cartItems.forEach((item) => {
+        list.innerHTML = `
+                <li>
+                    Product: ${item.name}, Quantity: ${item.quantity}, Price: ${item.price.toFixed(2)}
+                </li>`;
+        });
+    
+        list +='</ul>';
+        list += `<p>Total Price (including 16% VAT): ${totalPriceWithVAT.toFixed(2)}</p>`;
+    
+        // Set the modal content
+     checkoutModal.appendChild(list);
+    
+        // Show the Bootstrap modal
+        const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+        checkoutModal.show();
+    }
+    
 
-    // ...
+    // Find the "Proceed to Checkout" button and add a click event listener
+    const checkoutButton = document.querySelector('#cart-add button:last-of-type');
+    checkoutButton.addEventListener('click', displayCheckoutModal);
 
-// Function to remove item from the cart
+    // Your other code...
+
+});
+
 
