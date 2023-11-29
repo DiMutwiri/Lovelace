@@ -63,28 +63,30 @@ if (productDetails && productDetails.length > 0) {
 }
 
 // Function to add product to the cart
+// Your existing addToCart function
 async function addToCart(product) {
-     // Check if the product is already in the cart
     const existingItem = cartItems.find((item) => item.id === product.id);
- 
+
     if (existingItem) {
-        // If the product is already in the cart, increment the quantity
         existingItem.quantity += 1;
     } else {
-        // If the product is not in the cart, add it with quantity 1
         cartItems.push({
             id: product.id,
             name: product.brandName,
             price: product.Price,
             quantity: 1,
-            // Add the image property if available in your product data
             image: product.image_url,
         });
     }
- 
+
     // Update the cart in the HTML
     updateCartHtml();
- }
+
+ // Update the cart in the Supabase tabl
+}
+
+
+
  function removeCartItem(index) {
     cartItems.splice(index, 1);
     updateCartHtml();
@@ -95,7 +97,17 @@ async function addToCart(product) {
 function updateCartHtml() {
     // Get the cart table body
     const cartTableBody = document.getElementById('cartTable').getElementsByTagName('tbody')[0];
-
+    function updateSubtotal() {
+        const totalQuantityElement = document.getElementById('totalQuantity');
+        const totalPriceElement = document.getElementById('totalPrice');
+    
+        // Calculate total quantity and total price
+        const totalQuantity = cartItems.reduce((total, item) =>  item.quantity ++);
+    
+        // Update the HTML elements
+        totalQuantityElement.textContent = totalQuantity;
+        totalPriceElement.textContent = totalPrice.toFixed(2); // Format the total price to two decimal places
+    }
     // Add each item to the cart table
     cartItems.forEach((item, index) => {
         const cartRow = document.createElement('tr');
@@ -114,45 +126,27 @@ function updateCartHtml() {
         cartTableBody.appendChild(cartRow);
     });
 
+
     // Update the totals
     updateTotals();
 }
-document.addEventListener("DOMContentLoaded", function () {
-    // Function to display Bootstrap modal with checkout details
-    function displayCheckoutModal() {
-        // Calculate total price with VAT (16%)
-        const totalPriceWithVAT = cartItems.reduce((total, item) => total + item.price * item.quantity, 0) * 1.16;
-    
-        // Create the content for the modal
-       document.createElement( '<h2 class="modal-title">Checkout Details</h2>')
-      const list = document.createElement( '<ul>');
-    
-        // Iterate through the items and add them to the content
-        cartItems.forEach((item) => {
-        list.innerHTML = `
-                <li>
-                    Product: ${item.name}, Quantity: ${item.quantity}, Price: ${item.price.toFixed(2)}
-                </li>`;
-        });
-    
-        list +='</ul>';
-        list += `<p>Total Price (including 16% VAT): ${totalPriceWithVAT.toFixed(2)}</p>`;
-    
-        // Set the modal content
-     checkoutModal.appendChild(list);
-    
-        // Show the Bootstrap modal
-        const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
-        checkoutModal.show();
+const checkoutButton = document.getElementById('checkout'); // Update the ID to match your HTML
+
+function onCheckout() {
+    try {
+        // Check if the cart is not empty
+        if (cartItems.length > 0) {
+            // Redirect to the checkout page with user and product information
+            const checkoutUrl = `/checkout.html?userId=${userId}&productId=${productId}`;
+            window.location.href = checkoutUrl;
+        } else {
+            console.error('Cart is empty. Add items to the cart before proceeding to checkout.');
+        }
+    } catch (error) {
+        console.error('Error during checkout:', error);
     }
-    
+}
 
-    // Find the "Proceed to Checkout" button and add a click event listener
-    const checkoutButton = document.querySelector('#cart-add button:last-of-type');
-    checkoutButton.addEventListener('click', displayCheckoutModal);
-
-    // Your other code...
-
-});
-
+// Find the "Proceed to Checkout" button and add a click event listener
+checkoutButton.addEventListener('click', onCheckout);
 
